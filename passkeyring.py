@@ -23,7 +23,7 @@ class PassKeyring(keyring.backend.KeyringBackend):
         if exit_code == 0:
             return stdout.rstrip()
         else:
-            return exit_code
+            return None
 
     def delete_password(self, servicename, username):
         process = Popen(["pass", "rm", "-f", servicename+"/"+username], stdout=PIPE)
